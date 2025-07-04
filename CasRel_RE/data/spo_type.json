@@ -1,0 +1,121 @@
+{
+    "民族": {
+        "predicate": "民族",
+        "object_type": "文本",
+        "subject_type": "人物",
+        "object": "回族",
+        "subject": "木斧"
+    },
+    "出生日期": {
+        "predicate": "出生日期",
+        "object_type": "日期",
+        "subject_type": "人物",
+        "object": "1931",
+        "subject": "木斧"
+    },
+    "出生地": {
+        "predicate": "出生地",
+        "object_type": "地点",
+        "subject_type": "人物",
+        "object": "成都",
+        "subject": "木斧"
+    },
+    "作曲": {
+        "predicate": "作曲",
+        "object_type": "人物",
+        "subject_type": "歌曲",
+        "object": "黄家强",
+        "subject": "今晚会在哪里醒来"
+    },
+    "所属专辑": {
+        "predicate": "所属专辑",
+        "object_type": "音乐专辑",
+        "subject_type": "歌曲",
+        "object": "她他",
+        "subject": "今晚会在哪里醒来"
+    },
+    "歌手": {
+        "predicate": "歌手",
+        "object_type": "人物",
+        "subject_type": "歌曲",
+        "object": "黄家强",
+        "subject": "今晚会在哪里醒来"
+    },
+    "作词": {
+        "predicate": "作词",
+        "object_type": "人物",
+        "subject_type": "歌曲",
+        "object": "何启弘",
+        "subject": "今晚会在哪里醒来"
+    },
+    "成立日期": {
+        "predicate": "成立日期",
+        "object_type": "日期",
+        "subject_type": "企业",
+        "object": "2004年6月3日",
+        "subject": "华夏建通科技开发股份有限公司"
+    },
+    "作者": {
+        "predicate": "作者",
+        "object_type": "人物",
+        "subject_type": "图书作品",
+        "object": "醉爱风云",
+        "subject": "十九妾"
+    },
+    "连载网站": {
+        "predicate": "连载网站",
+        "object_type": "网站",
+        "subject_type": "网络小说",
+        "object": "潇湘书院",
+        "subject": "十九妾"
+    },
+    "毕业院校": {
+        "predicate": "毕业院校",
+        "object_type": "学校",
+        "subject_type": "人物",
+        "object": "中国大学",
+        "subject": "黄晖"
+    },
+    "出品公司": {
+        "predicate": "出品公司",
+        "object_type": "企业",
+        "subject_type": "影视作品",
+        "object": "朝日电视台",
+        "subject": "交涉人"
+    },
+    "主演": {
+        "predicate": "主演",
+        "object_type": "人物",
+        "subject_type": "影视作品",
+        "object": "闫妮",
+        "subject": "生活启示录"
+    },
+    "出版社": {
+        "predicate": "出版社",
+        "object_type": "出版社",
+        "subject_type": "图书作品",
+        "object": "上海社会科学院出版社",
+        "subject": "燕谈录"
+    },
+    "国籍": {
+        "predicate": "国籍",
+        "object_type": "国家",
+        "subject_type": "人物",
+        "object": "韩国",
+        "subject": "朴正熙"
+    },
+    "导演": {
+        "predicate": "导演",
+        "object_type": "人物",
+        "subject_type": "影视作品",
+        "object": "梁修身",
+        "subject": "阳光正蓝"
+    },
+    "上映时间": {
+        "predicate": "上映时间",
+        "object_type": "日期",
+        "subject_type": "影视作品",
+        "object": "2015年",
+        "subject": "夏洛特烦恼"
+    }
+}

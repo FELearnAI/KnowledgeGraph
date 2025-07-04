@@ -1,0 +1,14 @@
+{
+ "O": 0,
+ "B-TREATMENT": 1,
+ "I-TREATMENT": 2,
+ "B-BODY": 3,
+ "I-BODY": 4,
+ "B-SIGNS": 5,
+ "I-SIGNS": 6,
+ "B-CHECK": 7,
+ "I-CHECK": 8,
+ "B-DISEASE": 9,
+ "I-DISEASE": 10,
+ "PAD": 11
+}

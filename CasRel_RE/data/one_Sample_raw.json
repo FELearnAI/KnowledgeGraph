@@ -1,0 +1,2 @@
+{"text": "雷军创立了小米科技", "spo_list": [{"predicate": "创立了", "object_type": "机构", "subject_type": "人物", "object": "小米科技", "subject": "雷军"}]}
+{"text": "马云创立了阿里巴巴，他出生于杭州", "spo_list": [{"predicate": "创立了", "object_type": "机构", "subject_type": "人物", "object": "阿里巴巴", "subject": "马云"},{"predicate": "出生地", "object_type": "地点", "subject_type": "人物", "object": "杭州", "subject": "马云"}]}
