@@ -1,6 +1,6 @@
-import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# 导入路径管理工具
+from path_utils import get_model_save_path
 
 from CasRel_RE.model.CasrelModel import *
 from CasRel_RE.casrel_datautils.process import single_sample_process
@@ -11,8 +11,8 @@ from CasRel_RE.config import Config
 baseconf=baseconfig()
 conf=Config()
 model = CasRel(conf)
-# 使用绝对路径加载模型
-model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'save_model', 'best_f1.pth')
+# 使用路径管理工具加载模型
+model_path = get_model_save_path('CasRel_RE', 'best_f1.pth')
 model.load_state_dict(torch.load(model_path, map_location=conf.device))
 def model2predict(sample):
     # 读取关系字典 id2rel

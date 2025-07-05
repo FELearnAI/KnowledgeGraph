@@ -1,16 +1,17 @@
-import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from CasRel_RE.model.CasrelModel import *
-from CasRel_RE.config import *
+import sys
 import time
 import pandas as pd
 from tqdm import tqdm
-from CasRel_RE.utils.data_loader import *
 import shutup
-from CasRel_RE.model.CasrelModel import CasRel
 from torch.optim import AdamW
+
+from path_utils import get_model_save_path
+
+from CasRel_RE.model.CasrelModel import *
+from CasRel_RE.config import *
+from CasRel_RE.utils.data_loader import *
+from CasRel_RE.model.CasrelModel import CasRel
 shutup.please()
 
 conf=Config()
@@ -28,8 +29,8 @@ def model2train():
     #实例化优化器
     optimizer=AdamW(model.parameters(),lr=conf.learning_rate)
 
-    # 创建保存模型的绝对路径
-    save_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'save_model')
+    # 使用路径管理工具获取模型保存目录
+    save_dir = get_model_save_path('CasRel_RE')
     os.makedirs(save_dir, exist_ok=True)
     
     start_time = time.time()

@@ -1,11 +1,10 @@
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 import torch
 import torch.nn as nn
 from transformers import BertModel
 from tqdm import tqdm
+# 导入路径管理工具（自动设置项目路径）
+from path_utils import setup_project_path
+
 from CasRel_RE.utils.data_loader import *
 from CasRel_RE.config import Config
 

@@ -1,11 +1,11 @@
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 import torch
 from torch.utils.data import DataLoader
 from random import choice
 from collections import defaultdict
+
+
+
+# 导入必要的模块
 from CasRel_RE.casrel_datautils.Base_Conf import BaseConfig
 from CasRel_RE.casrel_datautils.data_loader import get_dataloader
 from CasRel_RE.casrel_datautils.process import single_sample_process
@@ -74,18 +74,3 @@ def convert_score_to_zero_one(tensor):
     tensor[tensor >= 0.5] = 1
     tensor[tensor < 0.5] = 0
     return tensor
-
-
-if __name__ == '__main__':
-    dataloaders = get_all_dataloader()
-    train_loader = dataloaders["train"]
-    test_loader = dataloaders["test"]
-    dev_loader = dataloaders["dev"]
-    for batch_idx, (inputs, labels) in enumerate(dev_loader):
-        print(f"Batch {batch_idx}:")
-        print(f"Inputs: {inputs}")
-        print(f"Labels: {labels}")
-        print("---")
-        breakpoint()
-        print()
-    pass
