@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bc11105-d818-4de8-858b-d9146126ebc4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CasRel_RE/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/CasRel_RE/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +57,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/dyq/PycharmProjects/KnowledgeGraph",
+    "last_opened_file_path": "/Users/dyq/Work/KnowledgeGraph",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -167,6 +168,7 @@
       <workItem from="1751271492919" duration="74000" />
       <workItem from="1751271611106" duration="193000" />
       <workItem from="1751271817495" duration="4284000" />
+      <workItem from="1751694700333" duration="5000" />
     </task>
     <servers />
   </component>
