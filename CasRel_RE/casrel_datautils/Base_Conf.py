@@ -1,4 +1,4 @@
-'''# 导入必要的库
+# 导入必要的库
 import torch  # PyTorch深度学习框架
 from transformers import BertTokenizer, BertModel  # Hugging Face的transformers库，用于加载BERT模型和分词器
 import json  # 用于处理JSON格式的数据
@@ -198,14 +198,12 @@ if __name__ == '__main__':
             max_length=128,  # 设置最大序列长度
             batch_size=16    # 设置批次大小
         )
-        print("
---- 配置加载成功 ---")
+        print("\n--- 配置加载成功 ---")
         print(f"设备: {baseconf_instance.device}")
         print(f"BERT路径: {baseconf_instance.bert_path}")
         print(f"关系数量: {baseconf_instance.num_rel}")
         print(f"关系到ID的映射: {baseconf_instance.rel2id}")
-        print("--- 示例结束 ---
-")
+        print("--- 示例结束 ---\n")
         
     except Exception as e:
         print(f"示例执行失败: {str(e)}")

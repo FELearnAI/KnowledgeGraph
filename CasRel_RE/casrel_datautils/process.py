@@ -356,4 +356,3 @@ def single_sample_process(baseconf, sample_data):
 #         print("提取的客实体和关系:", obj_and_rel)
 #     except Exception as e:
 #         logger.error(f"主程序执行错误: {str(e)}")
-''

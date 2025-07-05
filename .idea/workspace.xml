@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bc11105-d818-4de8-858b-d9146126ebc4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bilstm_Attention_RE/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Bilstm_Attention_RE/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/Base_Conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/Base_Conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/data_loader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CasRel_RE/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/CasRel_RE/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,22 +55,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/dyq/Work/KnowledgeGraph",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dyq/Work/KnowledgeGraph&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Bilstm_Attention_RE/data" />
@@ -79,7 +84,7 @@
       <recent name="$PROJECT_DIR$/项目总动员/data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.train">
+  <component name="RunManager" selected="Python.run">
     <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KnowledgeGraphBase" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,6 +129,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="KnowledgeGraph" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KnowledgeGraphBase" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -148,6 +175,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.predict" />
         <item itemvalue="Python.config" />
@@ -169,6 +197,7 @@
       <workItem from="1751271611106" duration="193000" />
       <workItem from="1751271817495" duration="4284000" />
       <workItem from="1751694700333" duration="5000" />
+      <workItem from="1751700236456" duration="140000" />
     </task>
     <servers />
   </component>
@@ -210,6 +239,7 @@
     <SUITE FILE_PATH="coverage/ChineseKnowledgeGraph$BiLSTM_CRF.coverage" NAME="BiLSTM_CRF Coverage Results" MODIFIED="1750666462932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LSTM_CRF/model" />
     <SUITE FILE_PATH="coverage/KnowledgeGraph$data_loader__1_.coverage" NAME="data_loader (1) Coverage Results" MODIFIED="1751182790199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bilstm_Attention_RE/utils" />
     <SUITE FILE_PATH="coverage/KnowledgeGraph$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1751269479419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bilstm_Attention_RE" />
+    <SUITE FILE_PATH="coverage/KnowledgeGraph$run.coverage" NAME="run Coverage Results" MODIFIED="1751700370729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ChineseKnowledgeGraph$data_process.coverage" NAME="data_process Coverage Results" MODIFIED="1750649918792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LSTM_CRF/utils" />
     <SUITE FILE_PATH="coverage/ChineseKnowledgeGraph$train__1_.coverage" NAME="my_train Coverage Results" MODIFIED="1750934695008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MOVIE_NER" />
     <SUITE FILE_PATH="coverage/KnowledgeGraph$bilstm_atten.coverage" NAME="bilstm_atten Coverage Results" MODIFIED="1751270602107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Bilstm_Attention_RE/model" />
