@@ -43,9 +43,6 @@ def model2predict(sample):
         pred_sub_tails = convert_score_to_zero_one(sub_tails)
         pred_subs = extract_sub(pred_sub_heads.squeeze(), pred_sub_tails.squeeze())
 
-
-        print('开始预测....')
-
         # 是否有 sub
         if len(pred_subs) != 0:
             for sub in pred_subs:
