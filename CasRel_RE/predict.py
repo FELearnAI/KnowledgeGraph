@@ -34,6 +34,8 @@ def model2predict(sample):
     with torch.no_grad():
         #获取单条样本的输入
         input_ids,mask=single_sample_process(baseconf,sample)
+        # 将输入数据移动到模型所在的设备
+        input_ids, mask = input_ids.to(conf.device), mask.to(conf.device)
         #获取编码结果
         encoded_text = model.get_encoded_text(input_ids, mask)
         sub_heads, sub_tails = model.get_subs(encoded_text)
