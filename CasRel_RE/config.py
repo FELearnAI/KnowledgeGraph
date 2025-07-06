@@ -33,6 +33,7 @@ class Config(object):
         self.tokenizer = BertTokenizer.from_pretrained(self.bert_path)
         # BERT模型的隐藏层维度（对于bert-base-chinese是768）
         self.bert_dim = 768
+        self.max_length = 512 # BERT模型的最大序列长度
 
         # --- 3. 数据集路径配置 ---
         # 使用相对路径定义所有数据文件，增强可移植性
