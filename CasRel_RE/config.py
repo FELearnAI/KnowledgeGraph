@@ -50,9 +50,9 @@ class Config(object):
         self.num_rel = len(self.id2rel)
 
         # --- 5. 训练超参数 ---
-        self.epochs = 5  # 训练的总轮数
-        self.learning_rate = 1e-5  # 优化器的学习率
-        self.batch_size = 2  # 每个训练批次的大小
+        self.epochs = 1  # 训练的总轮数
+        self.learning_rate = 1e-4  # 优化器的学习率
+        self.batch_size = 8  # 每个训练批次的大小
         self.patience = 3  # 早停机制的“耐心”，即连续patience个epoch验证集性能没有提升就停止训练
 
 # --- 示例使用 ---

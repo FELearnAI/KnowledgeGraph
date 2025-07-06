@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bc11105-d818-4de8-858b-d9146126ebc4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bilstm_Attention_RE/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Bilstm_Attention_RE/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/Base_Conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/Base_Conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/data_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/CasRel_RE/casrel_datautils/process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CasRel_RE/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/CasRel_RE/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +191,7 @@
       <workItem from="1751271611106" duration="193000" />
       <workItem from="1751271817495" duration="4284000" />
       <workItem from="1751694700333" duration="5000" />
-      <workItem from="1751700236456" duration="140000" />
+      <workItem from="1751700236456" duration="947000" />
     </task>
     <servers />
   </component>

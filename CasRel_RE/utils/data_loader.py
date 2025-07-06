@@ -19,7 +19,7 @@ def baseconfig():
                           test_data=locConf.test_path,
                           dev_data=locConf.dev_path,
                           rel_data=locConf.rel_data,
-                          batch_size=2)
+                          batch_size=locConf.batch_size)
     return baseconf
 
 def get_all_dataloader():
