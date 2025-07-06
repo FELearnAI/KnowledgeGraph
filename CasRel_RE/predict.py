@@ -118,8 +118,11 @@ def model2predict(sample):
 
 
 if __name__ == '__main__':
-    # 设置测试文件路径
-    test_data_path = 'data/test.json'
+    # 构建data/test.json的绝对路径
+    # os.path.dirname(__file__) 获取当前脚本所在的目录
+    # os.path.join() 将多个路径组合成一个完整的路径
+    script_dir = os.path.dirname(__file__)
+    test_data_path = os.path.join(script_dir, 'data', 'test.json')
 
     # 在这里设置要测试的样本数量。设置为None将测试所有样本。
     # 例如: num_samples = 20  或 num_samples = 50
