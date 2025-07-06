@@ -28,7 +28,7 @@ class Config(object):
 
         # --- 2. BERT模型相关配置 ---
         # BERT模型的本地路径。使用相对路径以保证项目的可移植性。
-        self.bert_path = "CasRel_RE/bert-base-chinese"
+        self.bert_path = "bert-base-chinese"
         # 从指定路径加载BERT分词器
         self.tokenizer = BertTokenizer.from_pretrained(self.bert_path)
         # BERT模型的隐藏层维度（对于bert-base-chinese是768）

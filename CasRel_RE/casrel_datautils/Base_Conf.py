@@ -74,20 +74,17 @@ class BaseConfig:
             logger.info("未检测到GPU，使用设备: CPU")
 
         # --- 2. BERT模型及分词器配置 ---
-        # 验证并解析bert_path
+        # --- 2. BERT模型及分词器配置 ---
+        # 验证bert_path
         if not bert_path:
             logger.error("bert_path 必须提供！这是一个必需的参数。")
-            raise ValueError("请提供有效的本地 BERT 模型路径。")
+            raise ValueError("请提供 BERT 模型名称或本地路径。")
         
-        # 将bert_path转换为绝对路径，以支持相对路径输入
-        self.bert_path = os.path.abspath(bert_path)
-        if not os.path.isdir(self.bert_path):
-            logger.error(f"提供的BERT路径 '{self.bert_path}' 不是一个有效的目录。")
-            raise ValueError(f"提供的 BERT 路径 '{self.bert_path}' 无效。")
-        logger.info(f"使用本地 BERT 模型，解析后的绝对路径为: {self.bert_path}")
+        self.bert_path = bert_path # 存储原始路径/名称
+        logger.info(f"正在从 '{self.bert_path}' 加载 BERT 模型...")
 
         try:
-            # 从指定的本地路径加载分词器和BERT模型
+            # 从指定的路径或Hugging Face Hub加载分词器和BERT模型
             self.tokenizer = BertTokenizer.from_pretrained(self.bert_path)
             self.bert_model = BertModel.from_pretrained(self.bert_path).to(self.device)
 
