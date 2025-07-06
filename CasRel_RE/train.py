@@ -2,6 +2,7 @@
 import os  # 用于与操作系统交互，如创建目录
 import sys  # 用于与Python解释器交互
 import time  # 用于计时
+import logging  # 导入日志库
 import pandas as pd  # 用于数据处理和分析，如此处的评估结果展示
 from tqdm import tqdm  # 用于显示美观的进度条
 import shutup  # 一个可以抑制第三方库警告的工具
@@ -30,7 +31,20 @@ def model2train():
     该函数会完成模型的初始化、数据加载、训练循环、验证、模型保存和早停等所有操作。
     """
     # --- 1. 初始化 ---
-    print("--- 1. 初始化模型、数据加载器和优化器 ---")
+    # 获取模型保存目录，并设置日志
+    save_dir = get_model_save_path('CasRel_RE')
+    os.makedirs(save_dir, exist_ok=True)
+    log_path = os.path.join(save_dir, 'training.log')
+
+    # 配置日志记录
+    logging.basicConfig(level=logging.INFO,
+                        format='%(asctime)s - %(levelname)s - %(message)s',
+                        handlers=[
+                            logging.FileHandler(log_path, mode='w'),  # 写入文件
+                            logging.StreamHandler()  # 输出到控制台
+                        ])
+
+    logging.info("--- 1. 初始化模型、数据加载器和优化器 ---")
     # 实例化CasRel模型
     model = CasRel(conf)
     # 将模型移动到在配置中指定的设备（CPU或GPU）
@@ -45,23 +59,21 @@ def model2train():
     optimizer = AdamW(model.parameters(), lr=conf.learning_rate)
 
     # --- 2. 设置模型保存路径 ---
-    # 使用路径管理工具获取模型应该保存的目录
-    save_dir = get_model_save_path('CasRel_RE')
-    # 如果目录不存在，则创建它
-    os.makedirs(save_dir, exist_ok=True)
-    print(f"模型将保存在: {save_dir}")
+    logging.info(f"模型将保存在: {save_dir}")
+    logging.info(f"日志将保存在: {log_path}")
 
     # --- 3. 初始化训练状态变量 ---
     start_time = time.time()  # 记录训练开始时间
     best_f1 = 0  # 用于记录验证集上最好的F1分数
     patience_counter = 0  # 用于早停机制的计数器
-    print("--- 2. 开始训练 ---")
+    logging.info("--- 2. 开始训练 ---")
 
     # --- 4. 开始训练循环 ---
     for epoch in range(conf.epochs):
         # 将模型设置为训练模式
         model.train()
-        print(f"\nEpoch {epoch + 1}/{conf.epochs}")
+        logging.info(f"\nEpoch {epoch + 1}/{conf.epochs}")
+        epoch_loss = 0
         
         # 遍历训练数据加载器，每个批次进行一次训练
         for inputs, labels in tqdm(train_loader, desc=f'训练中...'):
@@ -82,14 +94,16 @@ def model2train():
             loss.backward()
             # 根据梯度更新模型参数
             optimizer.step()
+            epoch_loss += loss.item()
 
         # --- 5. 每个epoch结束后进行验证 ---
-        print(f"Epoch {epoch + 1} 训练完成. 开始在验证集上评估...")
+        avg_loss = epoch_loss / len(train_loader)
+        logging.info(f"Epoch {epoch + 1} 训练完成. 平均损失: {avg_loss:.4f}. 开始在验证集上评估...")
         # 调用评估函数，获取验证集上的所有指标
         sub_precision, sub_recall, sub_f1, triple_precision, triple_recall, triple_f1, df = model2dev(model, dev_loader)
-        print(f"--- Epoch {epoch + 1} 验证结果 ---")
-        print(df)
-        print(f"三元组 F1: {triple_f1:.4f}, 最佳 F1: {best_f1:.4f}")
+        logging.info(f"--- Epoch {epoch + 1} 验证结果 ---")
+        logging.info(f'\n{df.to_string()}')
+        logging.info(f"三元组 F1: {triple_f1:.4f}, 最佳 F1: {best_f1:.4f}")
 
         # --- 6. 检查是否保存最佳模型及执行早停 ---
         if triple_f1 > best_f1:
@@ -98,22 +112,22 @@ def model2train():
             patience_counter = 0
             # 保存当前最好的模型权重
             torch.save(model.state_dict(), os.path.join(save_dir, 'casrel_best.pth'))
-            print(f"发现新的最佳模型！已保存至 'casrel_best.pth'")
+            logging.info(f"发现新的最佳模型！已保存至 'casrel_best.pth'")
         else:
             # 如果F1分数没有提升，则增加耐心计数器
             patience_counter += 1
-            print(f"验证集F1分数未提升，耐心计数: {patience_counter}/{conf.patience}")
+            logging.info(f"验证集F1分数未提升，耐心计数: {patience_counter}/{conf.patience}")
 
         # 如果连续多个epoch性能都没有提升，则触发早停
         if patience_counter >= conf.patience:
-            print(f"连续 {conf.patience} 个epoch性能未提升，触发早停机制。")
+            logging.info(f"连续 {conf.patience} 个epoch性能未提升，触发早停机制。")
             break
 
     # --- 7. 训练结束 ---
     # 保存最后一个epoch的模型状态
     torch.save(model.state_dict(), os.path.join(save_dir, 'casrel_last.pth'))
-    print(f"训练结束。最终模型已保存至 'casrel_last.pth'")
-    print(f'总训练耗时: {(time.time() - start_time) / 60:.2f} 分钟')
+    logging.info(f"训练结束。最终模型已保存至 'casrel_last.pth'")
+    logging.info(f'总训练耗时: {(time.time() - start_time) / 60:.2f} 分钟')
 
 def model2dev(model, dev_loader):
     """

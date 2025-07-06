@@ -118,16 +118,28 @@ def model2predict(sample):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Predict SPOs from a given text.")
-    parser.add_argument(
-        '--text',
-        type=str,
-        required=True,
-        help="The text to predict on."
-    )
-    args = parser.parse_args()
+    # 设置测试文件路径
+    test_data_path = 'data/test.json'
 
-    data = {"text": args.text}
-    result = model2predict(data)
-    print("========================================================================================")
-    print(result)
+    # 在这里设置要测试的样本数量。设置为None将测试所有样本。
+    # 例如: num_samples = 20  或 num_samples = 50
+    num_samples = 20
+
+    import json
+    from tqdm import tqdm
+
+    results = []
+    with open(test_data_path, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+        if num_samples is not None:
+            lines = lines[:num_samples]
+        for line in tqdm(lines, desc="Predicting from file"):
+            data = json.loads(line)
+            result = model2predict(data)
+            results.append(result)
+
+    output_path = os.path.join(os.path.dirname(test_data_path), 'predict_result.json')
+    with open(output_path, 'w', encoding='utf-8') as f:
+        for res in results:
+            f.write(json.dumps(res, ensure_ascii=False) + '\n')
+    print(f"Prediction complete. Results saved to {output_path}")
