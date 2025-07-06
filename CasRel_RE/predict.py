@@ -128,6 +128,8 @@ if __name__ == '__main__':
     # 例如: num_samples = 20  或 num_samples = 50
     num_samples = 20
 
+    print('num_samples:', num_samples)
+
     import json
     from tqdm import tqdm
 
