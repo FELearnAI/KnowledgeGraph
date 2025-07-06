@@ -1,4 +1,12 @@
 import os
+import sys
+import torch
+import argparse
+
+# 将项目根目录添加到Python路径
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, project_root)
+
 # 导入路径管理工具
 from path_utils import get_model_save_path
 
@@ -12,8 +20,10 @@ baseconf=baseconfig()
 conf=Config()
 model = CasRel(conf)
 # 使用路径管理工具加载模型
-model_path = get_model_save_path('CasRel_RE', 'best_f1.pth')
+model_path = os.path.join(get_model_save_path('CasRel_RE'), 'casrel_best.pth')
 model.load_state_dict(torch.load(model_path, map_location=conf.device))
+model.to(conf.device)
+
 def model2predict(sample):
     # 读取关系字典 id2rel
     id2rel=conf.id2rel
@@ -106,13 +116,16 @@ def model2predict(sample):
 
 
 if __name__ == '__main__':
-    # sample = '王菲深情演唱了歌曲《清风徐来》'
-    sample = '《秋天的眼泪》是孟庭苇演唱的歌曲，收录于孟庭苇于1992年3月发行的专辑《谁的眼泪在飞》'
-    # sample = '《今晚会在哪里醒来》是黄家强的一首粤语歌曲，由何启弘作词，黄家强作曲编曲并演唱，收录于2007年08月01日发行的专辑《她他》中'
-    # sample = '刘万亭，男，汉族，1934年10月生，莱阳市沐浴店镇南旺村人'
-    data={"text":sample}
-    # sample = '白百何的处女座是《与青春有关的日子》，合作的演员是佟大为、陈羽凡'
+    parser = argparse.ArgumentParser(description="Predict SPOs from a given text.")
+    parser.add_argument(
+        '--text',
+        type=str,
+        required=True,
+        help="The text to predict on."
+    )
+    args = parser.parse_args()
 
-    new_dict = model2predict(data)
+    data = {"text": args.text}
+    result = model2predict(data)
     print("========================================================================================")
-    print(new_dict)
+    print(result)

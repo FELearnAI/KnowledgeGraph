@@ -7,6 +7,10 @@ from tqdm import tqdm  # 用于显示美观的进度条
 import shutup  # 一个可以抑制第三方库警告的工具
 from torch.optim import AdamW  # 导入AdamW优化器，它是Adam的一个改进版本，常用于Transformer模型
 
+# 将项目根目录添加到Python路径，以确保可以正确导入所有模块
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, project_root)
+
 # 导入项目内的模块
 from path_utils import get_model_save_path  # 导入路径管理工具，用于获取模型保存路径
 from CasRel_RE.model.CasrelModel import *  # 从模型文件导入所有内容
@@ -147,12 +151,16 @@ def model2dev(model, dev_loader):
             batch_size = inputs['input_ids'].shape[0]
             for i in range(batch_size):
                 # 从预测的概率中提取主语
-                pred_subs = extract_sub(logits['pred_sub_heads'][i], logits['pred_sub_tails'][i])
+                pred_sub_heads_prob = logits['pred_sub_heads'][i].squeeze(-1)
+                pred_sub_tails_prob = logits['pred_sub_tails'][i].squeeze(-1)
+                pred_subs = extract_sub(convert_score_to_zero_one(pred_sub_heads_prob), convert_score_to_zero_one(pred_sub_tails_prob))
                 # 从真实标签中提取主语
                 true_subs = extract_sub(labels['sub_heads'][i], labels['sub_tails'][i])
                 
                 # 从预测的概率中提取宾语和关系
-                pred_objs = extract_obj_and_rel(logits['pred_obj_heads'][i], logits['pred_obj_tails'][i])
+                pred_obj_heads_prob = logits['pred_obj_heads'][i]
+                pred_obj_tails_prob = logits['pred_obj_tails'][i]
+                pred_objs = extract_obj_and_rel(convert_score_to_zero_one(pred_obj_heads_prob), convert_score_to_zero_one(pred_obj_tails_prob))
                 # 从真实标签中提取宾语和关系
                 true_objs = extract_obj_and_rel(labels['obj_heads'][i], labels['obj_tails'][i])
 
@@ -187,6 +195,8 @@ def model2dev(model, dev_loader):
     }, index=['Subject', 'Triple'])
 
     return sub_p, sub_r, sub_f1, triple_p, triple_r, triple_f1, df
+
+
 
 # --- 主程序入口 ---
 if __name__ == '__main__':
