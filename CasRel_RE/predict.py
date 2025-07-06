@@ -12,11 +12,10 @@ from path_utils import get_model_save_path
 
 from CasRel_RE.model.CasrelModel import *
 from CasRel_RE.casrel_datautils.process import single_sample_process
-from CasRel_RE.utils.data_loader import baseconfig
+
 from CasRel_RE.config import Config
 
 #
-baseconf=baseconfig()
 conf=Config()
 model = CasRel(conf)
 # 使用路径管理工具加载模型
@@ -33,7 +32,7 @@ def model2predict(sample):
     model.eval()
     with torch.no_grad():
         #获取单条样本的输入
-        input_ids,mask=single_sample_process(baseconf,sample)
+        input_ids,mask=single_sample_process(conf,sample)
         # 将输入数据移动到模型所在的设备
         input_ids, mask = input_ids.to(conf.device), mask.to(conf.device)
         #获取编码结果
