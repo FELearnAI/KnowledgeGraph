@@ -116,7 +116,17 @@ def model2predict(sample):
     return spo_list
 
 
-if __name__ == '__main__':
+def predict_text(text):
+    """
+    对单条文本进行预测
+    :param text: 输入的文本
+    :return: 预测结果
+    """
+    sample = {'text': text}
+    return model2predict(sample)
+
+
+def predict_json():
     # 构建data/test.json的绝对路径
     # os.path.dirname(__file__) 获取当前脚本所在的目录
     # os.path.join() 将多个路径组合成一个完整的路径
@@ -147,3 +157,12 @@ if __name__ == '__main__':
         for res in results:
             f.write(json.dumps(res, ensure_ascii=False) + '\n')
     print(f"Prediction complete. Results saved to {output_path}")
+
+if __name__ == '__main__':
+    # 在这里设置要测试的文本
+    test_text = "《离开》是由张靓颖演唱的一首歌曲"
+    prediction = predict_text(test_text)
+    import json
+    print(json.dumps(prediction, indent=4, ensure_ascii=False))
+
+    # predict_json()
