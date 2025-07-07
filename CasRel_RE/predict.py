@@ -113,7 +113,7 @@ def model2predict(sample):
                     spo_list.append(sub_spo)
 
     sample['predict'] = spo_list
-    return sample
+    return spo_list
 
 
 if __name__ == '__main__':
